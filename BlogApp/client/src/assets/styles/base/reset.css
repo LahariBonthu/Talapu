@@ -1,0 +1,98 @@
+/* Modern CSS Reset (Compatible with MUI) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default margin/padding and normalize fonts */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, dl, dd, ol, ul,
+figure, hr, fieldset, legend {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles (opinionated) */
+ol, ul {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove border on images inside links */
+a img {
+  border-style: none;
+}
+
+/* Reset form elements */
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Fix MUI button alignment */
+button {
+  line-height: 1;
+}
+
+/* Remove default button styles */
+button, [type="button"], [type="reset"], [type="submit"] {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Remove the inheritance of text transform */
+button, select {
+  text-transform: none;
+}
+
+/* Correct the cursor style */
+[role="button"] {
+  cursor: pointer;
+}
+
+/* Remove the inner border and padding in Firefox */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/* Restore focus styles */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/* Remove animations for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Rock+Salt&display=swap');
+
+/* Transparent AppBar */
+.custom-appbar {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+/* Toolbar styling */
+.custom-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Typography title */
+.custom-title {
+  font-family: 'Caveat', sans-serif !important;
+  font-weight: 400 !important;
+  color: #6a5acd;
+  font-size: 80px !important;
+}
+
+/* Tabs group */
+.custom-tabs {
+  gap: 1rem;
+}
+
+/* Tabs */
+.custom-tab {
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: 800;
+  color: #6a5acd !important;
+  transition: color 0.2s ease;
+  font-size: 17px !important;
+  text-transform: none;
+}
+
+.custom-tab:hover {
+  color: #151515 !important;
+}
+
+/* Button group on right */
+.custom-button-group {
+  display: flex;
+  
+  align-items: center;
+}
+
+/* Common button style */
+.custom-button {
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: 800;
+  font-size: 16px !important;
+  color: #6a5acd !important;
+  background-color: transparent;
+  border: none;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-transform: none;
+}
+
+.custom-button:hover {
+  background-color: #a97ce0;
+  color: #ffffff !important;
+}

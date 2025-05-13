@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  /* Font Families */
+  --font-sans: 'Josefin Sans', sans-serif;
+  --font-fun: 'Comic Relief', cursive;
+  --font-mono: 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Font Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Line Heights */
+  --line-tight: 1.25;
+  --line-normal: 1.5;
+  --line-relaxed: 1.75;
+}
+
+
+body {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-normal);
+  color: #1a1a1a;
+}
+
+/* Headings (Complement MUI's Typography) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-tight);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+/* Text Elements */
+p {
+  margin-bottom: 1em;
+  line-height: var(--line-relaxed);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #4361ee;
+}
+
+/* Special Text Classes */
+.text-serif {
+  font-family: var(--font-serif);
+}
+
+.text-sans {
+  font-family: var(--font-sans);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* MUI Integration Helpers */
+.MuiTypography-root {
+  font-family: var(--font-sans) !important;
+}
+
+.MuiTypography-h1, 
+.MuiTypography-h2, 
+.MuiTypography-h3 {
+  font-family: var(--font-serif) !important;
+}

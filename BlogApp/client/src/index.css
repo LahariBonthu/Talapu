@@ -1,0 +1,20 @@
+*{
+  margin :0;
+  padding : 0;
+  box-sizing : border-box
+}
+
+body {
+  background-color: #e6e6fa; /* Your desired background color */
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  height: 100vh; /* Ensure it covers the full viewport height */
+  display: flex;
+  flex-direction: column;
+ 
+  
+}
+
+
+
+

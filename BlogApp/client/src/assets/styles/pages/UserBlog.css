@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+
+.center-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    text-align: center;
+   
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+
+
+/* Style for the message text */
+.no-blogs-message,
+.loading-spinner {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500;
+  color: #a97ce0;
+  font-family: 'Caveat', cursive;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

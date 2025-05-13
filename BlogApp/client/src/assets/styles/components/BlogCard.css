@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+.blog-card {
+  width: 40%;
+  margin: auto;
+  margin-top: 16px;
+  padding: 16px;
+  box-shadow: 5px 5px 10px #dfdffb;
+  background-color: #ffffff !important;
+  transition: box-shadow 0.3s ease;
+  border: 2px solid #dab6fc !important; 
+  border-radius: 8px !important ;/* Optional: smooth corners */
+}
+
+
+
+.blog-card:hover {
+  box-shadow: 10px 10px 20px #ccc;
+}
+
+.blog-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.blog-card-header {
+  padding-bottom: 0;
+}
+
+.blog-avatar {
+  font-weight: bold;
+}
+
+.blog-card-media {
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.blog-card-media:hover {
+  transform: scale(1.02);
+}
+
+.blog-card-content {
+  padding-top: 8px;
+}
+
+.blog-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: 'Ubuntu', cursive !important;
+  font-size: 22px;
+  color: #ff135e !important ;
+  
+}
+
+.blog-description {
+  white-space: pre-line;
+  margin-bottom: 8px;
+  font: 200;
+  font-family: 'Comic Relief', sans-serif !important;
+  color: #29282e !important ;
+}
+
+.blog-toggle-btn {
+  text-transform: none;
+  font-weight: bold;
+  padding-left: 0;
+  font-family: 'Comic Relief', sans-serif !important;
+  color : #6f6f6f
+}
+
+.blog-card-expand {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.blog-image-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.blog-modal-box {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  outline: none;
+}
+
+.blog-modal-close-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  z-index: 1;
+}
+
+.blog-modal-close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.blog-modal-image {
+  max-width: 100%;
+  max-height: 90vh;
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+}
+
+/* Style for the Collapse Button (expand/collapse) */
+.blog-card-expand .expand-icon {
+  transition: transform 0.3s ease;
+  color: #878789; /* Icon color */
+  transform: rotate(0deg);
+}
+
+.blog-card-expand .expand-icon.expanded {
+  transform: rotate(180deg); /* Rotate when expanded */
+}
+
+.blog-toggle-btn {
+  text-transform: none;
+  font-weight: 400;
+  padding-left: 0;
+  font-size: 13px !important;
+  color: #727272 !important;
+  font-family: 'Comic Relief', sans-serif !important;
+  text-transform: none !important;
+
+}
+
+/* Style for the Collapse Section */
+.blog-collapse-section {
+  background-color: #f6f0ff;
+  border-top: 1px solid #e1d3f7;
+  border-radius: 0 0 8px 8px;
+  padding: 16px;
+  font-family: 'Comic Relief', sans-serif !important;
+  color: #444 !important;
+  transition: all 0.4s ease;
+}
+
+/* Author Details in Collapse Section */
+.blog-collapse-section .author-details {
+  font-family: 'Ubuntu', cursive !important;
+  font-size: 16px !important;
+  color: #ff135e !important;
+  font-weight: 400;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-collapse-section .author-details span {
+  margin: 5px 0;
+  font-family: 'Ubuntu', cursive !important;
+}
+
+.blog-collapse-section .author-details .author-name {
+  font-size: 16px;
+  font-family: 'Ubuntu', cursive !important;
+  color: #29282e;
+}
+
+.blog-collapse-section .author-details .author-time {
+  font-family: 'Ubuntu', cursive !important;
+  font-size: 12px;
+  color: #3d3d3d;
+}

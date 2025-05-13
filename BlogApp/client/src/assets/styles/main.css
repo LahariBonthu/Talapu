@@ -1,0 +1,11 @@
+@import './base/reset.css';
+@import './base/variables.css';
+@import './base/typography.css';
+@import './utils/mixins.css';
+@import './utils/animations.css';
+
+/* Component and page styles */
+@import './components/BlogCard.css';
+@import './components/Header.css';
+@import './pages/Blog.css';
+@import './pages/BlogDetails.css';

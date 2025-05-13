@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+/* Base form styling */
+.create-blog-form {
+  width: 90%;
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  border-radius: 16px;
+  background-color: #ffffff !important; 
+  box-shadow: 0 10px 25px rgba(165, 141, 215, 0.2);
+  border: 2px solid #e6dfff;
+  font-family: 'Ubuntu', sans-serif !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title of the form */
+.create-blog-title {
+  font-family: 'Ubuntu'!important;
+  text-align: center;
+  color: #b287e6 !important;
+  font-size: 2.2rem !important;
+  margin-bottom: 2rem;
+  font-weight: 400 !important;
+}
+
+/* Input labels */
+.create-blog-label {
+  font-size: 1.1rem;
+  font-family: 'Ubuntu'!important;
+  font-weight: 600;
+  color: #323232 !important;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Input fields */
+.create-blog-input .MuiInputBase-root {
+  font-family: 'Comic Relief', sans-serif;
+}
+
+.create-blog-input {
+  margin-bottom: 1rem;
+}
+
+/* Image upload section */
+.create-blog-image-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Image select button */
+.create-blog-image-button {
+  margin-bottom: 1rem !important;
+  font-family: "Ubuntu" !important;
+  padding: 0.6rem 1.2rem !important;
+  border: 2px solid #faf9fa !important;
+  border-radius: 10px !important;
+  background-color: #f5f0ff !important;
+  color: #b189ca !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.create-blog-image-button:hover {
+  background-color: #a97ce0 !important;
+  border-color: #fbfafc !important;
+  color: #f4f2f6  !important;
+} 
+
+/* Preview text */
+.create-blog-preview-text {
+  font-size: 0.95rem;
+  font-family: "Comic Relief" !important;
+  color: #777 !important;
+  margin-top: 0.5rem;
+  
+}
+
+/* Preview image */
+.create-blog-preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.create-blog-preview-image:hover {
+  transform: scale(1.05);
+}
+
+/* Submit button */
+.create-blog-submit-btn {
+  margin-top: 2rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #a97ce0 !important;
+  color: white !important;
+  border-radius: 10px !important;
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.create-blog-submit-btn:hover {
+  background-color: #6a5acd !important;
+}
+
+.create-blog-submit-btn:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed !important;
+}
