@@ -11,15 +11,19 @@ const pathToRegexp = require('path-to-regexp');
 // Environment config
 dotenv.config();
 
+// Router imports
+const userRoutes = require("./routes/userRoutes");
+const blogRoutes = require("./routes/blogRoutes");
+
 // MongoDB connection
 connectDB();
 
+// Initialize the express app
 const app = express();
 
 // Middlewares
 app.use(cors());
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(express.json());
 app.use(morgan("dev"));
 
 app.use((req, res, next) => {
@@ -29,15 +33,13 @@ app.use((req, res, next) => {
 
 <<<<<<< HEAD
 // ======================
-// API ROUTES (SAFE IMPORT)
+// API ROUTES
 // ======================
-// Temporary basic routes to isolate the issue
-const testRouter = express.Router();
-testRouter.get('/test', (req, res) => res.json({ status: 'API working' }));
-app.use("/api/v1", testRouter);
+app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/blog", blogRoutes);
 
 // ======================
-// FILE HANDLING (RENDER-COMPATIBLE)
+// FILE HANDLING
 // ======================
 =======
 // API Routes
@@ -60,6 +62,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client", "build")));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // 2. Health check endpoint
   app.get('/health', (req, res) => res.status(200).send('OK'));
 
@@ -71,6 +74,9 @@ if (process.env.NODE_ENV === "production") {
   });
 
 >>>>>>> parent of 0669bea (Update server.js)
+=======
+  // 2. Handle React routing (must come after API routes)
+>>>>>>> parent of a7619b9 (update)
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
@@ -84,12 +90,14 @@ const PORT = process.env.PORT || 8080;
 // Error handling middleware
 app.use((err, req, res, next) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   console.error('SERVER ERROR:', err.message);
+=======
+  console.error('ERROR:', err.stack);
+>>>>>>> parent of a7619b9 (update)
   res.status(500).json({
     success: false,
-    message: process.env.NODE_ENV === 'development'
-      ? err.message
-      : 'Internal Server Error'
+    message: err.message || 'Internal Server Error'
   });
 });
 
@@ -97,6 +105,7 @@ app.use((err, req, res, next) => {
 // SERVER START
 // ======================
 const PORT = process.env.PORT || 8080;
+<<<<<<< HEAD
 const server = app.listen(PORT, () => {
   console.log(`
   Server running in ${process.env.NODE_ENV || 'development'} mode
@@ -119,4 +128,8 @@ app.listen(PORT, () => {
     `Server running in ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white
   );
 >>>>>>> parent of 0669bea (Update server.js)
+=======
+app.listen(PORT, () => {
+  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+>>>>>>> parent of a7619b9 (update)
 });
