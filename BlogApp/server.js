@@ -26,9 +26,14 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.path}`);
+  next();
+});
+
 // API Routes
 app.use("/api/v1/user", userRoutes);
-app.use("/api/v1/blog", blogRoutes);
+//app.use("/api/v1/blog", blogRoutes);
 
 const uploadsDir = process.env.NODE_ENV === 'production'
   ? '/tmp/uploads'                                // for production (e.g., Render)
