@@ -23,7 +23,7 @@
 /* Title text */
 .login-title {
   text-transform: uppercase;
-  font-family: 'Ubuntu' !important ;
+  font-family: 'Josephone Sans' !important ;
   text-align: center;
   font-weight: 500;
   color: #1976d2;
@@ -54,7 +54,8 @@
   margin-top: 16px;
   color: #1976d2;
   text-transform: none;
-  font-size: 17px!important;
-  font-family: 'Ubuntu' ;
+  font-size: 16px!important;
+  font-family: 'Ubuntu' !important ;
   font-weight: 500;
+  text-transform: none !important;
 }

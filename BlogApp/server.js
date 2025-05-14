@@ -1,43 +1,49 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
-const colors = require("colors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const path = require("path");
 
-//env config
+// Environment config
 dotenv.config();
 
-//router import
+// Router imports
 const userRoutes = require("./routes/userRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 
-//mongodb connection
+// MongoDB connection
 connectDB();
 
-//rest objecct
+// Initialize the express app
 const app = express();
 
-//middelwares
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-//routes
+// API Routes
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/blog", blogRoutes);
 
-//uploads
-const path = require('path');
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Serve static files for React frontend if we're in production mode
+if (process.env.NODE_ENV === "production") {
+  // Serve static files from React's build folder
+  app.use(express.static(path.join(__dirname, "client", "build")));
 
+  // This is necessary for React Router (SPA) routing
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
-// Port
+// Port configuration
 const PORT = process.env.PORT || 8080;
-//listen
+
+// Start the server
 app.listen(PORT, () => {
   console.log(
-    `Server Running on ${process.env.DEV_MODE} mode port no ${PORT}`.bgCyan
-      .white
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
   );
 });
