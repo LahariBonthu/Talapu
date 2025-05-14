@@ -4,6 +4,8 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const path = require('path');
+const pathToRegexp = require('path-to-regexp');
+// Define your routes and ensure no route is missing a parameter name
 
 // Environment config
 dotenv.config();
@@ -30,14 +32,17 @@ app.use("/api/v1/blog", blogRoutes);
 // Serve uploads folder for static files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Serve static files for React frontend if we're in production mode
+// server.js - Update the production section
 if (process.env.NODE_ENV === "production") {
-  // Serve static files from React's build folder
   app.use(express.static(path.join(__dirname, "client", "build")));
 
-  // This is necessary for React Router (SPA) routing
+  // API routes should come before the catch-all route
+  app.get("/api*", (req, res) => {
+    res.redirect("/api/v1" + req.url.slice(4));
+  });
+
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
 
@@ -45,6 +50,12 @@ if (process.env.NODE_ENV === "production") {
 
 // Port configuration
 const PORT = process.env.PORT || 8080;
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 // Start the server
 app.listen(PORT, () => {
