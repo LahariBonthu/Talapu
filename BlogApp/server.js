@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const path = require('path');
+const fs = require('fs');
 const pathToRegexp = require('path-to-regexp');
 // Define your routes and ensure no route is missing a parameter name
 
@@ -29,8 +30,15 @@ app.use(morgan("dev"));
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/blog", blogRoutes);
 
-// Serve uploads folder for static files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+const uploadsDir = process.env.NODE_ENV === 'production'
+  ? '/tmp/uploads'                                // for production (e.g., Render)
+  : path.join(__dirname, 'uploads');              // for local development (your own directory)
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
+// Serve the uploads folder publicly
+app.use('/uploads', express.static(uploadsDir));
 
 // server.js - Update the production section
 if (process.env.NODE_ENV === "production") {
