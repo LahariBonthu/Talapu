@@ -3,7 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
-const path = require("path");
+const path = require('path');
 
 // Environment config
 dotenv.config();
@@ -18,7 +18,7 @@ connectDB();
 // Initialize the express app
 const app = express();
 
-// Middleware
+// Middlewares
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
@@ -26,6 +26,9 @@ app.use(morgan("dev"));
 // API Routes
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/blog", blogRoutes);
+
+// Serve uploads folder for static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve static files for React frontend if we're in production mode
 if (process.env.NODE_ENV === "production") {
@@ -38,12 +41,14 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+
+
 // Port configuration
 const PORT = process.env.PORT || 8080;
 
 // Start the server
 app.listen(PORT, () => {
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+    `Server running in ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white
   );
 });
