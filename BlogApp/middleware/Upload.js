@@ -1,5 +1,6 @@
 const multer = require('multer');
 const path = require('path');
+const storage = require("../config/storage");
 
 // Storage config
 const storage = multer.diskStorage({
