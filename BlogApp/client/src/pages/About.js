@@ -109,7 +109,14 @@ const About = () => {
                     fontStyle: "italic"
                 }}
             >
-                For any queries, feel free to reach out to me at: <a href="mailto:laharibonthu1882@gmail.com" style={{ color: "#333", textDecoration: "none" }}>laharibonthu1882@gmail.com</a>
+                For any queries, feel free to reach out to me at:
+                {" "}
+                <a
+                    href="mailto:laharibonthu1882@gmail.com"
+                    style={{ color: "#333", textDecoration: "none" }}
+                >
+                    laharibonthu1882@gmail.com
+                </a>
             </Typography>
         </Box>
     );
