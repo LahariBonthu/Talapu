@@ -5,8 +5,6 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const path = require('path');
 const fs = require('fs');
-const pathToRegexp = require('path-to-regexp');
-// Define your routes and ensure no route is missing a parameter name
 
 // Environment config
 dotenv.config();
@@ -21,17 +19,21 @@ connectDB();
 // Initialize the express app
 const app = express();
 
-// Middlewares
+// ======================
+// MIDDLEWARE STACK
+// ======================
+
+// 1. Basic middlewares
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+// 2. Request logger (for debugging)
 app.use((req, res, next) => {
-  console.log(`Incoming request: ${req.method} ${req.path}`);
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
   next();
 });
 
-<<<<<<< HEAD
 // ======================
 // API ROUTES
 // ======================
@@ -41,60 +43,33 @@ app.use("/api/v1/blog", blogRoutes);
 // ======================
 // FILE HANDLING
 // ======================
-=======
-// API Routes
-app.use("/api/v1/user", userRoutes);
-//app.use("/api/v1/blog", blogRoutes);
-
->>>>>>> parent of 0669bea (Update server.js)
 const uploadsDir = process.env.NODE_ENV === 'production'
-  ? '/tmp/uploads'                                // for production (e.g., Render)
-  : path.join(__dirname, 'uploads');              // for local development (your own directory)
+  ? '/tmp/uploads'
+  : path.join(__dirname, 'uploads');
+
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
-
-// Serve the uploads folder publicly
 app.use('/uploads', express.static(uploadsDir));
 
-// server.js - Update the production section
+// ======================
+// CLIENT APP (Production)
+// ======================
 if (process.env.NODE_ENV === "production") {
+  // 1. Serve static files from React build
   app.use(express.static(path.join(__dirname, "client", "build")));
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  // 2. Health check endpoint
-  app.get('/health', (req, res) => res.status(200).send('OK'));
-
-  // 3. Handle React routing (LAST)
-=======
-  // API routes should come before the catch-all route
-  app.get("/api*", (req, res) => {
-    res.redirect("/api/v1" + req.url.slice(4));
-  });
-
->>>>>>> parent of 0669bea (Update server.js)
-=======
   // 2. Handle React routing (must come after API routes)
->>>>>>> parent of a7619b9 (update)
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
 
-
-
-// Port configuration
-const PORT = process.env.PORT || 8080;
-
-// Error handling middleware
+// ======================
+// ERROR HANDLING
+// ======================
 app.use((err, req, res, next) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  console.error('SERVER ERROR:', err.message);
-=======
   console.error('ERROR:', err.stack);
->>>>>>> parent of a7619b9 (update)
   res.status(500).json({
     success: false,
     message: err.message || 'Internal Server Error'
@@ -105,31 +80,6 @@ app.use((err, req, res, next) => {
 // SERVER START
 // ======================
 const PORT = process.env.PORT || 8080;
-<<<<<<< HEAD
-const server = app.listen(PORT, () => {
-  console.log(`
-  Server running in ${process.env.NODE_ENV || 'development'} mode
-  Access URL: http://localhost:${PORT}
-  `);
-});
-
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (err) => {
-  console.error('UNHANDLED REJECTION:', err.message);
-  server.close(() => process.exit(1));
-=======
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(
-    `Server running in ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white
-  );
->>>>>>> parent of 0669bea (Update server.js)
-=======
 app.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
->>>>>>> parent of a7619b9 (update)
-});
+}); 
