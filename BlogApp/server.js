@@ -46,9 +46,6 @@ app.use("/api/v1/blog", blogRoutes);
 // ======================
 // FILE HANDLING
 // ======================
-const uploadsDir = path.join(__dirname, 'uploads');
-
-app.use('/uploads', express.static(uploadsDir));
 
 // ======================
 // CLIENT APP (Production)
