@@ -4,7 +4,6 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const path = require('path');
-const fs = require('fs');
 
 // Environment config
 dotenv.config();
@@ -24,10 +23,7 @@ const app = express();
 // ======================
 
 // 1. Basic middlewares
-app.use(cors({
-  origin: 'https://talapu-bonthu-sai-laharis-projects.vercel.app',
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
