@@ -46,13 +46,8 @@ app.use("/api/v1/blog", blogRoutes);
 // ======================
 // FILE HANDLING
 // ======================
-const uploadsDir = process.env.NODE_ENV === 'production'
-  ? '/tmp/uploads'
-  : path.join(__dirname, 'uploads');
+const uploadsDir = path.join(__dirname, 'uploads');
 
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
 app.use('/uploads', express.static(uploadsDir));
 
 // ======================
